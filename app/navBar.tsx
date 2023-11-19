@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import { AiFillBug }  from 'react-icons/ai'
+import { FaUniversity } from "react-icons/fa";
 import classnames from 'classnames'
 const NavBar = () => {
     const currentPath= usePathname();
@@ -12,11 +12,11 @@ const NavBar = () => {
         {label:'Sectors', href:'/sectors'},
         {label:'Letters', href:'/letters'},
         {label:'Contacts', href:'/contact'},
+        {label:'profile', href:'/profile'},
     ]
-
   return (
     <nav className='flex space-x-6 border-b mb-5 px-5 h-10 items-center'>
-        <Link href="/"><AiFillBug /> </Link>
+        <Link href="/"><FaUniversity  /> </Link>
         <ul className='flex space-x-4'>
             {links.map(link=>
             <Link
@@ -26,10 +26,10 @@ const NavBar = () => {
                 'text-zinc-500':link.href!==currentPath,
                 'hover:text-zinc-800 transion-colots':true  
              })}
-             href={link.href}>{link.label} </Link>)}
-           
+             href={link.href}>{link.label}
+              </Link>
+              )}   
            </ul>
-
     </nav>
   )
 }
