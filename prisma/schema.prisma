@@ -12,8 +12,8 @@ datasource db {
 
 model User {
   id         Int      @id @default(autoincrement())
-  full_name   String   @db.VarChar(255)
-  eamil      String   @db.VarChar(255)
+  full_name  String   @db.VarChar(255)
+  user_name      String   @db.VarChar(255)
   phone      String   @db.VarChar(255)
   status     Status   @default(OPEN)
   createdAt  DateTime @default(now())
