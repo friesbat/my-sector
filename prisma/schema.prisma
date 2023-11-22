@@ -6,13 +6,22 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  ful_name String
-  eamil String
-  phone number
+  id         Int      @id @default(autoincrement())
+  full_name   String   @db.VarChar(255)
+  eamil      String   @db.VarChar(255)
+  phone      String   @db.VarChar(255)
+  status     Status   @default(OPEN)
+  createdAt  DateTime @default(now())
+  upadatedAt DateTime @updatedAt
+}
+
+enum Status {
+  OPEN
+  IN_PROGRESS
+  CLOSED
 }
